@@ -1,0 +1,30 @@
+name: Run Utilization Report Script
+
+on:
+  schedule:
+    - cron: '30 2 * * *' # This is UTC, which corresponds to 8 AM IST
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          # Install any dependencies required by your script, e.g.:
+          # pip install -r requirements.txt
+
+      - name: Run utilization_report.py
+        run: python utilization_report.py
+        env:
+          # Add any environment variables required by your script
+          # Example: MY_ENV_VAR: ${{ secrets.MY_ENV_VAR }}
