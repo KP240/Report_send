@@ -8,7 +8,7 @@ def send_email():
     from_address = "kartik@project-lithium.com"
     to_address = "rakesh@project-lithium.com"
     subject = "Daily Vehicle & Sp Utilization Report"
-    report_link = "https://prod-apnortheast-a.online.tableau.com/#/site/lithiumurbantech/workbooks/2223869/views"
+    report_link = "https://prod-apnortheast-a.online.tableau.com/#/site/lithiumurbantech/views/Utilization_Report_VehicleAndSP/Home?:iid=3"
 
     # Calculate the date two days ago
     report_date = (datetime.now() - timedelta(days=2)).strftime('%Y-%m-%d')
@@ -20,6 +20,8 @@ def send_email():
         <p>Hello,</p>
         <p>This is the daily Vehicle & SP utilization Report for {report_date}.</p>
         <p>Please view the report <a href="{report_link}">here</a>.</p>
+    <p>Thanks & Regards,</p>
+    <p>Kartik Pandey</p>
     </body>
     </html>
     """
